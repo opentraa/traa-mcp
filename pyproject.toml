@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "traa_mcp_server"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+keywords = [
+    "Screen Capturer", "Snapshot", "Desktop Capturer"
+]
+license = { file = "LICENSE" }
+authors = [
+  { name = "Sylar", email = "peilinok@gmail.com" },
+]
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.0.0",
+    "mcp[cli]>=1.0.0",
+    "anyio>=4.5",
+    "traa==0.1.5",
+    "pillow>=11.1.0",
+]
+
+[project.scripts]
+traa_mcp_server = "traa_mcp_server.server.stdio:main"
+traa_mcp_server-sse = "traa_mcp_server.server.sse:main"
+traa_mcp_client = "traa_mcp_server.client.app:main"
+
+[tool.setuptools.packages.find]
+include = ["traa_mcp_server*"]
+namespaces = true 
